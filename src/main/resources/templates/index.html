@@ -12,13 +12,15 @@
 <body>
 <div align="center" class="container my-2">
   <h1>Student List</h1>
-    <a th:href="@{/newStudentForm}">Add Student</a>
-  <table border="1" class="table table-striped table-responsive{-md">
+
+  <table border="1" class="table table-striped table-responsive-md">
       <thead>
       <tr>
           <th>Student name</th>
           <th>Student college</th>
           <th>Student email</th>
+          <th>Actions</th>
+
       </tr>
       </thead>
       <tbody>
@@ -26,10 +28,15 @@
           <td th:text="${student.name}"></td>
           <td th:text="${student.college}"></td>
           <td th:text="${student.email}"></td>
+          <td> <a th:href="@{/showFormForUpdate/{id}(id=${student.id})}" class="btn btn-primary">update</a>
+         <a th:href="@{/deleteStudent/{id}(id=${student.id})}" class="btn btn-danger">Delete</a></td>
 
       </tr>
       </tbody>
   </table>
+</div>
+<div align="center">
+    <a th:href="@{/showNewStudentForm}" class = "btn btn-primary btn-sm mb-3">Add Student</a>
 </div>
 </body>
 </html>
